@@ -189,17 +189,27 @@
       <article class="card">
         <h2>Descrição do Projeto</h2>
         <p class="lead">
-          A distração ao volante, especialmente aquela provocada pelo uso indevido de telefone celular, configura-se como um dos principais fatores associados ao aumento de acidentes de trânsito, uma vez que compromete simultaneamente a atenção visual, cognitiva e manual do motorista. Inserido nesse contexto, este Trabalho de Graduação propõe o desenvolvimento do DriveSafe Vision, um sistema computacional embarcado, voltado à detecção, em tempo real, do uso de celular durante a condução veicular, alinhado aos princípios dos Sistemas Avançados de Assistência ao Motorista (ADAS – Advanced Driver-Assistance Systems).
+<p style="text-align: justify;">
+    A distração ao volante, especialmente pelo uso de telefone celular, é um dos principais fatores associados ao aumento
+    de acidentes de trânsito. Nesse contexto, o <strong>DriveSafe Vision</strong> é um sistema computacional embarcado
+    desenvolvido para detectar, em tempo real, o uso de celular durante a condução veicular, inserido no contexto dos
+    <strong>Sistemas Avançados de Assistência ao Motorista (ADAS)</strong>.
+  </p>
 
-O sistema baseia-se em técnicas de processamento digital de imagens e visão computacional, utilizando captura contínua de vídeo, pré-processamento para redução de ruído e normalização de iluminação, segmentação de regiões de interesse e análise temporal de eventos. Para a detecção visual do telefone celular, é empregado um modelo de aprendizado profundo do tipo YOLO (You Only Look Once), capaz de identificar o objeto de interesse em tempo real, com elevada eficiência computacional, característica essencial para aplicações embarcadas.
+  <p style="text-align: justify;">
+    O sistema combina técnicas de <strong>visão computacional</strong> e <strong>aprendizado profundo</strong>, empregando
+    o modelo <strong>YOLO</strong> para a detecção visual do telefone celular, aliado à análise temporal para validação
+    dos eventos e redução de falsos positivos. A implementação é realizada em <strong>C++</strong> com <strong>OpenCV</strong>,
+    priorizando eficiência e viabilidade em plataformas embarcadas de baixo custo.
+  </p>
 
-Além da detecção visual, o projeto incorpora o uso de Modelos de Linguagem de Grande Porte (LLMs – Large Language Models) como componente de apoio à tomada de decisão e à interpretação semântica dos eventos detectados. Essa integração permite uma arquitetura híbrida, na qual técnicas clássicas de visão computacional e modelos de aprendizado profundo são combinadas a abordagens inteligentes de alto nível, ampliando a robustez do sistema e reduzindo a ocorrência de falsos positivos por meio de validações contextuais.
+  <p style="text-align: justify;">
+    Ao identificar comportamentos de risco, o sistema emite alertas locais e envia notificações remotas via
+    <strong>Telegram</strong>, respeitando princípios de privacidade e minimização de dados. Como resultado, o projeto busca
+    contribuir para a mitigação de comportamentos de risco e para o aumento da segurança viária.
+  </p>
 
-A implementação é realizada em C++, com o uso da biblioteca OpenCV, priorizando uma arquitetura leve, modular e adequada para execução em tempo real em plataformas embarcadas de baixo custo computacional. Uma vez identificado o comportamento de risco, o sistema emite alertas locais e envia notificações remotas por meio da API do Telegram, possibilitando o registro pontual de evidências sem a necessidade de armazenamento contínuo de vídeo, em conformidade com princípios de privacidade e minimização de dados.
-
-Do ponto de vista acadêmico e tecnológico, o DriveSafe Vision integra conceitos de visão computacional, análise temporal, aprendizado profundo, LLMs e ADAS, apresentando potencial de evolução para arquiteturas multimodais e sistemas inteligentes mais avançados de monitoramento do comportamento do motorista. Espera-se, como resultado, o desenvolvimento de um sistema funcional, mensurável e socialmente relevante, capaz de contribuir para a mitigação de comportamentos de risco e para o aumento da segurança viária.
-        </p>
-
+          
         <div class="chips" aria-label="Tecnologias-chave">
           <span class="chip">
             <!-- icon camera -->
