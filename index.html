@@ -189,33 +189,15 @@
       <article class="card">
         <h2>Descrição do Projeto</h2>
         <p class="lead">
-          A distração ao volante, especialmente aquela provocada pelo uso indevido de telefone celular, configura-se
-          como um dos principais fatores associados ao aumento de acidentes de trânsito, comprometendo simultaneamente
-          a atenção visual, cognitiva e manual do motorista. Diante desse contexto, este projeto propõe o desenvolvimento
-          do <b>DriveSafe Vision</b>, um sistema computacional embarcado voltado à detecção, em tempo real, do uso de
-          celular durante a condução veicular.
-        </p>
-        <p class="lead" style="margin-top:12px;">
-          O sistema baseia-se em técnicas de <b>processamento digital de imagens</b> e <b>visão computacional</b>,
-          utilizando captura contínua de vídeo, pré-processamento para redução de ruído e normalização de iluminação,
-          segmentação de movimento por subtração de fundo, operações morfológicas e análise de contornos. A validação
-          dos eventos de distração é realizada por meio de <b>análise temporal</b>, assegurando que apenas comportamentos
-          persistentes e compatíveis com o uso do celular sejam sinalizados, o que contribui para a redução de falsos positivos.
-        </p>
-        <p class="lead" style="margin-top:12px;">
-          A implementação é realizada em <b>C++</b> com o uso da biblioteca <b>OpenCV</b>, priorizando uma arquitetura
-          leve e adequada para execução em tempo real em plataformas embarcadas de baixo custo computacional.
-          Uma vez identificado o comportamento de risco, o sistema emite alertas locais e envia notificações remotas por
-          meio da API do <b>Telegram</b>, permitindo o registro pontual de evidências sem a necessidade de armazenamento
-          contínuo de vídeo, em conformidade com princípios de privacidade e minimização de dados.
-        </p>
-        <p class="lead" style="margin-top:12px;">
-          Do ponto de vista acadêmico e tecnológico, o projeto integra conceitos de visão computacional, análise temporal
-          e sistemas avançados de assistência ao motorista — <b>ADAS (Advanced Driver-Assistance System)</b> —, apresentando
-          ainda potencial de evolução para abordagens multimodais baseadas em aprendizado profundo, modelos visual-linguísticos
-          e modelos de linguagem de grande porte. Espera-se, como resultado, o desenvolvimento de um sistema funcional,
-          mensurável e socialmente relevante, capaz de contribuir para a mitigação de comportamentos de risco e para o aumento
-          da segurança viária.
+          A distração ao volante, especialmente aquela provocada pelo uso indevido de telefone celular, configura-se como um dos principais fatores associados ao aumento de acidentes de trânsito, uma vez que compromete simultaneamente a atenção visual, cognitiva e manual do motorista. Inserido nesse contexto, este Trabalho de Graduação propõe o desenvolvimento do DriveSafe Vision, um sistema computacional embarcado, voltado à detecção, em tempo real, do uso de celular durante a condução veicular, alinhado aos princípios dos Sistemas Avançados de Assistência ao Motorista (ADAS – Advanced Driver-Assistance Systems).
+
+O sistema baseia-se em técnicas de processamento digital de imagens e visão computacional, utilizando captura contínua de vídeo, pré-processamento para redução de ruído e normalização de iluminação, segmentação de regiões de interesse e análise temporal de eventos. Para a detecção visual do telefone celular, é empregado um modelo de aprendizado profundo do tipo YOLO (You Only Look Once), capaz de identificar o objeto de interesse em tempo real, com elevada eficiência computacional, característica essencial para aplicações embarcadas.
+
+Além da detecção visual, o projeto incorpora o uso de Modelos de Linguagem de Grande Porte (LLMs – Large Language Models) como componente de apoio à tomada de decisão e à interpretação semântica dos eventos detectados. Essa integração permite uma arquitetura híbrida, na qual técnicas clássicas de visão computacional e modelos de aprendizado profundo são combinadas a abordagens inteligentes de alto nível, ampliando a robustez do sistema e reduzindo a ocorrência de falsos positivos por meio de validações contextuais.
+
+A implementação é realizada em C++, com o uso da biblioteca OpenCV, priorizando uma arquitetura leve, modular e adequada para execução em tempo real em plataformas embarcadas de baixo custo computacional. Uma vez identificado o comportamento de risco, o sistema emite alertas locais e envia notificações remotas por meio da API do Telegram, possibilitando o registro pontual de evidências sem a necessidade de armazenamento contínuo de vídeo, em conformidade com princípios de privacidade e minimização de dados.
+
+Do ponto de vista acadêmico e tecnológico, o DriveSafe Vision integra conceitos de visão computacional, análise temporal, aprendizado profundo, LLMs e ADAS, apresentando potencial de evolução para arquiteturas multimodais e sistemas inteligentes mais avançados de monitoramento do comportamento do motorista. Espera-se, como resultado, o desenvolvimento de um sistema funcional, mensurável e socialmente relevante, capaz de contribuir para a mitigação de comportamentos de risco e para o aumento da segurança viária.
         </p>
 
         <div class="chips" aria-label="Tecnologias-chave">
