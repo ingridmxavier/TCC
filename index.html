@@ -292,6 +292,56 @@
           </div>
         </div>
 
+  <section>
+  <h2>Testes Experimentais com Imagens</h2>
+
+<p style="text-align: justify;">
+    Para a validação do sistema de detecção de uso de telefone celular ao volante,
+    foram realizados testes experimentais utilizando imagens estáticas capturadas
+    no interior de veículos, contendo motoristas em diferentes condições de uso do celular nas Figuras 2 e 3, usando a base de dados Kaggle.
+  </p>
+
+    <figure>
+  <img src="Arquivos/imagem1.jpg" alt="Detecção de celular ao volante na imagem1.jpg" width="600">
+  <figcaption>
+    Figura 2 – Exemplo de detecção de telefone celular ao volante.
+  </figcaption>
+</figure>
+
+        <figure>
+  <img src="Arquivos/imagem7.jpg" alt="Detecção de celular ao volante na imagem1.jpg" width="600">
+  <figcaption>
+    Figura 2 – Exemplo de detecção de telefone celular ao volante.
+  </figcaption>
+</figure>
+
+
+ <p style="text-align: justify;">
+    As imagens de teste apresentam cenários realistas, incluindo variações de iluminação,
+    ângulo de captura, posição do motorista e forma de interação com o telefone celular
+    (por exemplo, uso próximo ao rosto durante chamadas).
+  </p>
+
+ <p style="text-align: justify;">
+    O algoritmo foi configurado para detectar exclusivamente o objeto telefone celular,
+    ignorando propositalmente outras classes presentes na cena, como rosto, mãos, volante
+    ou partes do veículo. A detecção correta é indicada por uma caixa delimitadora
+    (<em>bounding box</em>) na cor verde, acompanhada do rótulo “CELULAR”.
+  </p>
+
+ <p style="text-align: justify;">
+    Conforme observado nas imagens de teste, o sistema foi capaz de localizar corretamente
+    o telefone celular mesmo quando este se encontrava parcialmente ocluído ou próximo ao rosto
+    do motorista, demonstrando robustez frente a contextos comuns de condução.
+  </p>
+
+  <p style="text-align: justify;">
+    Esses resultados indicam que a abordagem adotada é adequada para a identificação
+    visual do uso de celular ao volante em ambientes controlados, constituindo uma etapa
+    fundamental para aplicações futuras em sistemas embarcados de monitoramento de segurança veicular.
+  </p>
+</section>
+
         <footer>
           <span>UFABC • TG — Engenharia de Informação</span>
           <span style="opacity:.85;">DriveSafe Vision</span>
