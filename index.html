@@ -195,6 +195,48 @@
           com OpenCV, priorizando eficiência e viabilidade em plataformas embarcadas.
         </p>
 
+<section style="max-width: 1000px; margin: auto; text-align: justify; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;">
+<h2>Testes Executados</h2>
+  
+  <h3>Calibração Inicial e Teste Preliminar</h3>
+  <p>
+    Inicialmente, o sistema foi calibrado com o motorista em postura normal de condução, realizando ajustes
+    no enquadramento da câmera, na região de interesse (ROI) e nos parâmetros de segmentação, com o objetivo
+    de reduzir falsos positivos. O sistema permaneceu em execução por aproximadamente 60 segundos em condição
+    de não evento, além de testes em ambiente externo ao veículo, permitindo verificar a estabilidade da
+    detecção e a ausência de disparos indevidos.
+  </p>
+
+  <h3>Teste 1 – Veículo Estacionado</h3>
+  <p>
+    O Teste 1 foi conduzido com o veículo estacionado, possibilitando maior controle experimental e realismo
+    do ambiente interno, incluindo reflexos e variações de iluminação. Inicialmente, avaliou-se o sistema sem
+    uso de celular, não sendo observados alertas indevidos. Em seguida, a simulação controlada do uso do
+    dispositivo pelo motorista resultou na detecção correta do evento, com emissão de alerta sonoro,
+    salvamento de evidências e envio de notificações via Telegram.
+  </p>
+
+  <h3>Teste 2 – Veículo em Movimento</h3>
+  <p>
+    O Teste 2 avaliou o desempenho do sistema em condições mais próximas do cenário real, considerando
+    vibrações, variações de iluminação e a dinâmica do veículo em movimento. Por razões de segurança, o uso
+    do celular foi simulado por meio de vídeos previamente gravados e pela atuação controlada de um
+    passageiro. Os resultados indicaram que o sistema foi capaz de detectar o evento simulado, emitir alertas,
+    registrar evidências e retornar corretamente ao estado normal após o término da simulação.
+  </p>
+
+</section>
+        
+    <h2 style="margin-top:32px;">Resultados do Teste Preliminar </h2>
+<p>
+  A Figura 1 apresenta a interface do sistema DriveSafe Vision em execução, utilizando
+captura de vídeo em tempo real por webcam. Observa-se a identificação automática do
+celular, destacado por uma caixa delimitadora (bounding box )e acompanhado do valor de confiança 
+da detecção. Em paralelo, é exibida a interface do aplicativo Telegram, evidenciando
+o envio automático da notificação gerada pelo sistema após a a confirmação do evento,
+contendo mensagem de alerta e imagem associada `a detecção.
+</p>
+        
         <video controls>
           <source src="Arquivos/Teste_editado.mp4" type="video/mp4">
           Seu navegador não suporta vídeo HTML5.
@@ -204,25 +246,49 @@
           Figura 1 – Demonstração do sistema DriveSafe Vision.
         </figcaption>
 
-        <h2 style="margin-top:32px;">Testes Experimentais com Imagens</h2>
+
+<section style="max-width: 1000px; margin: auto; text-align: justify; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;">
+
+  <h3> Resultados do Teste 1</h3>
+
+  <p>
+    A Figura 2 apresenta a interface do sistema DriveSafe Vision em execução, extraída do vídeo de teste,
+    utilizando captura da visão em tempo real por webcam. Observa-se a identificação automática do objeto
+    classificado como celular, destacada por uma caixa delimitadora (bounding box). Em paralelo,
+    exibe-se a interface do aplicativo Telegram, evidenciando o envio automático da notificação gerada
+    pelo sistema após a confirmação do evento, contendo mensagem de alerta e imagem associada à detecção.
+  </p>
+
+   <video controls>
+          <source src="Arquivos/ teste_sozinha_editado.mp4" type="video/mp4">
+          Seu navegador não suporta vídeo HTML5.
+        </video>
+
+        <figcaption>
+          Figura 2 – Demonstração do sistema DriveSafe Vision.
+        </figcaption>
+</section>
+
+
+        <h2 style="margin-top:32px;">Resultados do Teste 2 com Imagens de Banco de Dados </h2>
 
         <p>
           Para a validação do sistema, foram realizados testes experimentais utilizando
           imagens estáticas capturadas no interior de veículos, provenientes da base
-          de dados Kaggle, conforme ilustrado nas Figuras 2 e 3.
+          de dados Kaggle, conforme ilustrado nas Figuras 3 e 4.
         </p>
 
         <figure>
           <img src="Arquivos/imagem1.jpg" alt="Detecção de celular ao volante">
           <figcaption>
-            Figura 2 – Detecção de telefone celular ao volante (imagem1.jpg).
+            Figura 3 – Detecção de uso de celular ao volante.
           </figcaption>
         </figure>
 
         <figure>
           <img src="Arquivos/imagem7.jpg" alt="Detecção de celular ao volante">
           <figcaption>
-            Figura 3 – Detecção de telefone celular ao volante (imagem7.jpg).
+            Figura 4 – Detecção de telefone celular ao volante.
           </figcaption>
         </figure>
 
@@ -232,6 +298,46 @@
           enquadramento e oclusão parcial, demonstrando robustez frente a
           situações realistas de condução.
         </p>
+
+<section style="max-width: 900px; margin: auto; text-align: justify; font-family: Arial, Helvetica, sans-serif; line-height: 1.6;">
+  <h2 style="text-align: center;">Resultados do Teste 2 com Passageiro</h2>
+
+  <p>
+    A figura 5 apresentada é o vídeo capturado durante os testes experimentais do sistema.
+    Observa-se que o algoritmo é capaz de identificar o uso de celular tanto pelo motorista quanto pelo
+    passageiro, demonstrando que a solução não se restringe apenas à posição do condutor, mas atua de forma
+    abrangente sobre o interior do veículo.
+  </p>
+   <video controls>
+          <source src="Arquivos/teste_passageira_editada.mp4" type="video/mp4">
+          Seu navegador não suporta vídeo HTML5.
+        </video>
+
+        <figcaption>
+          Figura 1 – Demonstração do sistema DriveSafe Vision.
+        </figcaption>
+
+  <p>
+    A detecção é realizada a partir da análise visual de regiões de interesse no habitáculo veicular, combinando técnicas de
+    processamento digital de imagens, detecção de objetos baseada em <strong>redes neurais profundas</strong> e análise
+    temporal dos frames. Essa abordagem contribui para maior robustez do sistema, reduzindo falsos positivos causados por
+    movimentos rápidos ou objetos visualmente semelhantes a dispositivos móveis.
+  </p>
+
+  <p>
+    Embora o foco principal seja a identificação do uso de celular pelo motorista, a detecção do passageiro utilizando o
+    dispositivo evidencia a <strong>capacidade geral de percepção do modelo</strong>. Esse aspecto é relevante, pois o uso
+    de celulares por ocupantes do veículo pode gerar distrações indiretas ao condutor, comprometendo sua atenção e
+    aumentando o risco de acidentes.
+  </p>
+
+  <p>
+    Os resultados obtidos confirmam que o sistema opera de forma eficiente em ambientes veiculares reais, lidando com
+    variações de iluminação, diferentes ângulos de captura e múltiplas posições dos ocupantes. Dessa forma, o projeto
+    estabelece uma base sólida para futuras extensões, como a distinção automática entre motorista e passageiro, análises
+    comportamentais mais detalhadas e integração com sistemas avançados de assistência ao motorista (ADAS).
+  </p>
+</section>
 
         <div class="chips">
           <span class="chip">Visão Computacional</span>
