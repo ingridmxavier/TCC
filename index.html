@@ -11,10 +11,12 @@
   <style>
     :root {
       --bg: #0b1220;
+      --bg-soft: #0f1a2f;
       --card: #111c33;
       --text: #e9eefc;
       --muted: #b8c3e6;
       --accent: #7c3aed;
+      --accent2: #22c55e;
       --border: rgba(255,255,255,0.12);
       --shadow: 0 20px 45px rgba(0,0,0,0.35);
       --radius: 18px;
@@ -25,26 +27,24 @@
     body {
       margin: 0;
       font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background: radial-gradient(1000px 600px at 10% 10%, rgba(124,58,237,.35), transparent 60%),
-                  radial-gradient(900px 600px at 50% 120%, rgba(59,130,246,.18), transparent 55%),
-                  var(--bg);
+      background:
+        radial-gradient(1000px 600px at 10% 10%, rgba(124,58,237,.35), transparent 60%),
+        radial-gradient(800px 500px at 90% 20%, rgba(34,197,94,.25), transparent 60%),
+        radial-gradient(900px 600px at 50% 120%, rgba(59,130,246,.18), transparent 55%),
+        var(--bg);
       color: var(--text);
       line-height: 1.65;
     }
 
     .wrap {
       max-width: 1000px;
-      margin: auto;
+      margin: 0 auto;
       padding: 48px 20px 64px;
     }
 
-    header {
-      margin-bottom: 32px;
-    }
-
     h1 {
-      margin: 0;
       font-size: clamp(28px, 4vw, 42px);
+      margin: 0;
     }
 
     .subtitle {
@@ -53,63 +53,69 @@
       max-width: 80ch;
     }
 
+    /* 🔧 GRID CORRIGIDO */
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 22px;
+    }
+
     .card {
       background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
       border: 1px solid var(--border);
       border-radius: var(--radius);
-      padding: 28px;
+      padding: 26px;
       box-shadow: var(--shadow);
+      width: 100%;
     }
-
-    h2 { margin-top: 32px; }
-    h3 { margin-top: 24px; }
 
     p {
       text-align: justify;
       margin: 14px 0;
     }
 
-    figure, video {
+    figure {
+      text-align: center;
       margin: 24px 0;
-      width: 100%;
     }
 
     img, video {
       width: 100%;
-      border-radius: 14px;
+      border-radius: 12px;
       border: 1px solid var(--border);
       box-shadow: 0 12px 30px rgba(0,0,0,0.35);
     }
 
     figcaption {
-      text-align: center;
+      margin-top: 8px;
       font-size: 0.95rem;
       color: var(--muted);
-      margin-top: 8px;
+      text-align: center;
     }
 
     .chips {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-top: 28px;
+      margin-top: 20px;
     }
 
     .chip {
-      padding: 8px 14px;
+      padding: 9px 14px;
       border-radius: 999px;
       background: rgba(15,26,47,.7);
       border: 1px solid var(--border);
       color: var(--muted);
-      font-size: .9rem;
       font-weight: 600;
+      font-size: .9rem;
     }
 
     footer {
-      margin-top: 40px;
-      text-align: center;
-      color: var(--muted);
+      margin-top: 24px;
       font-size: .95rem;
+      color: var(--muted);
+      opacity: .9;
+      text-align: center;
     }
   </style>
 </head>
@@ -121,52 +127,61 @@
   <h1>DriveSafe Vision</h1>
   <p class="subtitle">
     Sistema computacional <b>embarcado</b> para detecção, em tempo real, do
-    <b>uso de telefone celular ao volante</b>, com foco em segurança viária.
+    <b>uso de telefone celular ao volante</b>, com foco em segurança viária,
+    eficiência computacional e relevância social.
   </p>
 </header>
 
-<main class="card">
+<section class="grid">
+
+<article class="card">
 
 <h2>Descrição do Projeto</h2>
+
 <p>
-  A distração ao volante, especialmente pelo uso de telefone celular, é um dos principais
-  fatores associados ao aumento de acidentes de trânsito. O DriveSafe Vision propõe uma
-  solução embarcada baseada em visão computacional e deep learning para a detecção automática
-  desse comportamento.
+A distração ao volante, especialmente pelo uso de telefone celular,
+é um dos principais fatores associados ao aumento de acidentes de trânsito.
+</p>
+
+<p>
+O sistema emprega técnicas de <strong>visão computacional</strong> e
+<strong>deep learning</strong>, utilizando o modelo YOLO para a detecção
+visual do telefone celular. A implementação é realizada em <strong>C++</strong>
+com OpenCV.
 </p>
 
 <h2>Testes Executados</h2>
 
 <h3>Calibração Inicial e Teste Preliminar</h3>
 <p>
-  O sistema foi calibrado com o motorista em postura normal de condução, ajustando enquadramento,
-  região de interesse e parâmetros de segmentação, garantindo estabilidade e ausência de falsos
-  positivos em condição de não evento.
+Inicialmente, o sistema foi calibrado com o motorista em postura normal de condução,
+realizando ajustes no enquadramento da câmera, na região de interesse (ROI) e nos
+parâmetros de segmentação, com o objetivo de reduzir falsos positivos.
 </p>
 
 <h3>Teste 1 – Veículo Estacionado</h3>
 <p>
-  Com o veículo estacionado, o sistema demonstrou elevada robustez, não apresentando alertas
-  indevidos e detectando corretamente o uso simulado do celular pelo motorista.
+O Teste 1 foi conduzido com o veículo estacionado, possibilitando maior controle
+experimental e realismo do ambiente interno.
 </p>
 
 <h3>Teste 2 – Veículo em Movimento</h3>
 <p>
-  Em condições dinâmicas, o uso do celular foi simulado de forma segura, e o sistema manteve
-  desempenho consistente, emitindo alertas e registrando evidências corretamente.
+O Teste 2 avaliou o desempenho do sistema em condições reais de condução,
+com simulações seguras do uso do celular.
 </p>
 
-<h2>Resultados Experimentais</h2>
+<h2>Resultados</h2>
 
 <video controls>
   <source src="Arquivos/Teste_editado.mp4" type="video/mp4">
 </video>
-<figcaption>Figura 1 – Execução do sistema DriveSafe Vision.</figcaption>
+<figcaption>Figura 1 – Demonstração do sistema DriveSafe Vision.</figcaption>
 
 <video controls>
   <source src="Arquivos/teste_passageira_editada.mp4" type="video/mp4">
 </video>
-<figcaption>Figura 2 – Detecção de celular com passageiro.</figcaption>
+<figcaption>Figura 2 – Detecção com passageiro.</figcaption>
 
 <div class="chips">
   <span class="chip">Visão Computacional</span>
@@ -176,11 +191,21 @@
   <span class="chip">Segurança Viária</span>
 </div>
 
-</main>
+</article>
+
+<aside class="card">
+  <h2>Destaques</h2>
+  <p><b>Problema:</b> uso de celular ao volante.</p>
+  <p><b>Solução:</b> detecção visual em tempo real.</p>
+  <p><b>Pipeline:</b> captura → detecção → validação temporal.</p>
+  <p><b>Aplicação:</b> sistemas ADAS.</p>
+</aside>
+
+</section>
 
 <footer>
-  UFABC • Trabalho de Graduação — Engenharia de Informação<br>
-  DriveSafe Vision
+UFABC • TG — Engenharia de Informação<br>
+DriveSafe Vision
 </footer>
 
 </div>
