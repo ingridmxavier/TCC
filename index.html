@@ -1,195 +1,7 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>DriveSafe Vision — UFABC</title>
-  <meta name="description" content="Trabalho de Graduação em Engenharia de Informação — UFABC. Projeto DriveSafe Vision: detecção embarcada de uso de celular ao volante em tempo real." />
-  <style>
-    :root{
-      --bg:#0b1220;
-      --card:#0f1a2f;
-      --text:#e9eefc;
-      --muted:#b8c3e6;
-      --accent:#7c3aed; /* roxinho */
-      --accent2:#22c55e; /* verdinho */
-      --border:rgba(255,255,255,.10);
-      --shadow: 0 18px 50px rgba(0,0,0,.35);
-      --radius: 18px;
-    }
-    *{ box-sizing: border-box; }
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans", sans-serif;
-      background:
-        radial-gradient(1200px 700px at 10% 10%, rgba(124,58,237,.35), transparent 60%),
-        radial-gradient(900px 600px at 90% 20%, rgba(34,197,94,.20), transparent 55%),
-        radial-gradient(900px 700px at 50% 110%, rgba(59,130,246,.18), transparent 55%),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.6;
-    }
-    .wrap{
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 48px 20px 64px;
-    }
-    header{
-      display:flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-bottom: 22px;
-    }
-    .badge{
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      width: fit-content;
-      padding: 10px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.06);
-      backdrop-filter: blur(8px);
-      box-shadow: 0 10px 30px rgba(0,0,0,.25);
-      font-weight: 600;
-      letter-spacing: .2px;
-      color: var(--muted);
-    }
-    .dot{
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: linear-gradient(135deg, var(--accent), #60a5fa);
-      box-shadow: 0 0 0 4px rgba(124,58,237,.18);
-    }
-    h1{
-      font-size: clamp(26px, 3.4vw, 40px);
-      line-height: 1.15;
-      margin: 0;
-      letter-spacing: -0.6px;
-    }
-    .subtitle{
-      margin: 0;
-      color: var(--muted);
-      max-width: 78ch;
-      font-size: 1.02rem;
-    }
+<article class="card">
+  <h2>Descrição do Projeto</h2>
 
-    .grid{
-      display:grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 18px;
-      margin-top: 22px;
-    }
-    @media (max-width: 900px){
-      .grid{ grid-template-columns: 1fr; }
-    }
-
-    .card{
-      border: 1px solid var(--border);
-      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 22px 22px;
-      position: relative;
-      overflow: hidden;
-    }
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:-1px;
-      background: radial-gradient(400px 180px at 15% 0%, rgba(124,58,237,.25), transparent 55%),
-                  radial-gradient(420px 220px at 95% 30%, rgba(34,197,94,.16), transparent 60%);
-      pointer-events:none;
-      opacity:.9;
-    }
-    .card > *{ position: relative; }
-    .card h2{
-      margin: 0 0 10px;
-      font-size: 1.15rem;
-      letter-spacing: .2px;
-    }
-    .lead{
-      margin: 0;
-      color: var(--text);
-      font-size: 1.02rem;
-    }
-    .muted{
-      color: var(--muted);
-      margin: 0;
-    }
-
-    .chips{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-    }
-    .chip{
-      display:inline-flex;
-      align-items:center;
-      gap:8px;
-      padding: 9px 12px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(15,26,47,.6);
-      color: var(--muted);
-      font-weight: 600;
-      font-size: .92rem;
-    }
-    .chip svg{ opacity:.95; }
-
-    .pill-list{
-      display:flex;
-      flex-direction: column;
-      gap: 10px;
-      margin-top: 10px;
-    }
-    .pill{
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: rgba(11,18,32,.45);
-    }
-    .pill b{
-      color: var(--text);
-      font-weight: 800;
-    }
-
-    footer{
-      margin-top: 18px;
-      color: var(--muted);
-      font-size: .95rem;
-      display:flex;
-      justify-content: space-between;
-      gap: 14px;
-      flex-wrap: wrap;
-      opacity: .95;
-    }
-    a{ color: inherit; }
-  </style>
-</head>
-
-<body>
-  <div class="wrap">
-    <header>
-      <div class="badge">
-        <span class="dot" aria-hidden="true"></span>
-        Universidade Federal do ABC • Trabalho de Graduação em Engenharia de Informação
-      </div>
-
-      <h1>DriveSafe Vision</h1>
-      <p class="subtitle">
-        Sistema computacional <b>embarcado</b> para detecção, em tempo real, do <b>uso de celular ao volante</b>,
-        com foco em eficiência, privacidade e relevância social para a segurança viária.
-      </p>
-    </header>
-
-    <section class="grid">
-      <article class="card">
-        <h2>Descrição do Projeto</h2>
-        <p class="lead">
-<p style="text-align: justify;">
+  <p style="text-align: justify;">
     A distração ao volante, especialmente pelo uso de telefone celular, é um dos principais fatores associados ao aumento
     de acidentes de trânsito. Nesse contexto, o DriveSafe Vision é um sistema computacional embarcado
     desenvolvido para detectar, em tempo real, o uso de celular durante a condução veicular, inserido no contexto dos
@@ -209,13 +21,12 @@
     contribuir para a mitigação de comportamentos de risco e para o aumento da segurança viária.
   </p>
 
-    <p style="text-align: justify;">
-    <video controls width="100%">
-  <source src="Arquivos/Teste_editado.mp4" type="video/mp4">
-  Seu navegador não suporta vídeo HTML5.
-</video>
+  <video controls width="100%">
+    <source src="Arquivos/Teste_editado.mp4" type="video/mp4">
+    Seu navegador não suporta vídeo HTML5.
+  </video>
 
-       <figcaption style="
+  <figcaption style="
     margin-top: 8px;
     font-size: 0.95rem;
     color: #b8c3e6;
@@ -223,135 +34,60 @@
   ">
     Figura 1 – Demonstração do sistema DriveSafe Vision.
   </figcaption>
-</figure>
-          
-        <div class="chips" aria-label="Tecnologias-chave">
-          <span class="chip">
-            <!-- icon camera -->
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M4 7h3l2-2h6l2 2h3v12H4V7Z" stroke="currentColor" stroke-width="2" />
-              <circle cx="12" cy="13" r="3" stroke="currentColor" stroke-width="2"/>
-            </svg>
-            Visão Computacional
-          </span>
-          <span class="chip">
-            <!-- icon cpu -->
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M9 9h6v6H9V9Z" stroke="currentColor" stroke-width="2"/>
-              <path d="M7 3v4M17 3v4M7 17v4M17 17v4M3 7h4M3 17h4M17 7h4M17 17h4" stroke="currentColor" stroke-width="2"/>
-            </svg>
-            Embarcado em Tempo Real
-          </span>
-          <span class="chip">
-            <!-- icon code -->
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M8 9 5 12l3 3M16 9l3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            C++ + OpenCV
-          </span>
-          <span class="chip">
-            <!-- icon bell -->
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M18 8a6 6 0 10-12 0c0 7-3 7-3 7h18s-3 0-3-7Z" stroke="currentColor" stroke-width="2"/>
-              <path d="M13.73 21a2 2 0 01-3.46 0" stroke="currentColor" stroke-width="2"/>
-            </svg>
-            Alertas + Telegram
-          </span>
-          <span class="chip">
-            <!-- icon shield -->
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-              <path d="M12 2 20 6v6c0 5-3.5 9.5-8 10-4.5-.5-8-5-8-10V6l8-4Z" stroke="currentColor" stroke-width="2"/>
-            </svg>
-            Privacidade / Minimização de Dados
-          </span>
-        </div>
-      </article>
 
+  <!-- ================= TESTES EXPERIMENTAIS ================= -->
 
-  <section>
-  <h2>Testes Experimentais com Imagens</h2>
+  <h2 style="margin-top: 28px;">Testes Experimentais com Imagens</h2>
 
-<p style="text-align: justify;">
+  <p style="text-align: justify;">
     Para a validação do sistema de detecção de uso de telefone celular ao volante,
     foram realizados testes experimentais utilizando imagens estáticas capturadas
-    no interior de veículos, contendo motoristas em diferentes condições de uso do celular nas Figuras 2 e 3, usando a base de dados Kaggle.
+    no interior de veículos, contendo motoristas em diferentes condições de uso do
+    celular, conforme apresentado nas Figuras 2 e 3, utilizando imagens da base de
+    dados Kaggle.
   </p>
 
-    <figure>
-  <img src="Arquivos/imagem1.jpg" alt="Detecção de celular ao volante na imagem1.jpg" width="600">
-  <figcaption>
-    Figura 2 – Exemplo de detecção de telefone celular ao volante.
-  </figcaption>
-</figure>
+  <figure style="text-align: center; margin: 18px 0;">
+    <img src="Arquivos/imagem1.jpg" alt="Detecção de celular ao volante na imagem1.jpg" width="600">
+    <figcaption style="margin-top: 6px; color: #b8c3e6;">
+      Figura 2 – Exemplo de detecção de telefone celular ao volante (imagem1.jpg).
+    </figcaption>
+  </figure>
 
-        <figure>
-  <img src="Arquivos/imagem7.jpg" alt="Detecção de celular ao volante na imagem1.jpg" width="600">
-  <figcaption>
-    Figura 2 – Exemplo de detecção de telefone celular ao volante.
-  </figcaption>
-</figure>
+  <figure style="text-align: center; margin: 18px 0;">
+    <img src="Arquivos/imagem7.jpg" alt="Detecção de celular ao volante na imagem7.jpg" width="600">
+    <figcaption style="margin-top: 6px; color: #b8c3e6;">
+      Figura 3 – Exemplo de detecção de telefone celular ao volante (imagem7.jpg).
+    </figcaption>
+  </figure>
 
-
- <p style="text-align: justify;">
+  <p style="text-align: justify;">
     As imagens de teste apresentam cenários realistas, incluindo variações de iluminação,
-    ângulo de captura, posição do motorista e forma de interação com o telefone celular
-    (por exemplo, uso próximo ao rosto durante chamadas).
+    ângulo de captura, posição do motorista e forma de interação com o telefone celular,
+    como o uso próximo ao rosto durante chamadas.
   </p>
 
- <p style="text-align: justify;">
+  <p style="text-align: justify;">
     O algoritmo foi configurado para detectar exclusivamente o objeto telefone celular,
     ignorando propositalmente outras classes presentes na cena, como rosto, mãos, volante
     ou partes do veículo. A detecção correta é indicada por uma caixa delimitadora
     (<em>bounding box</em>) na cor verde, acompanhada do rótulo “CELULAR”.
   </p>
 
- <p style="text-align: justify;">
-    Conforme observado nas imagens de teste, o sistema foi capaz de localizar corretamente
-    o telefone celular mesmo quando este se encontrava parcialmente ocluído ou próximo ao rosto
-    do motorista, demonstrando robustez frente a contextos comuns de condução.
+  <p style="text-align: justify;">
+    Conforme observado nos testes realizados, o sistema foi capaz de localizar corretamente
+    o telefone celular mesmo quando este se encontrava parcialmente ocluído ou próximo ao
+    rosto do motorista, demonstrando robustez frente a contextos comuns de condução.
   </p>
 
   <p style="text-align: justify;">
     Esses resultados indicam que a abordagem adotada é adequada para a identificação
     visual do uso de celular ao volante em ambientes controlados, constituindo uma etapa
-    fundamental para aplicações futuras em sistemas embarcados de monitoramento de segurança veicular.
+    fundamental para aplicações futuras em sistemas embarcados de monitoramento de
+    segurança veicular.
   </p>
-</section>
 
+  <!-- ================= FIM TESTES ================= -->
 
-
-      
-      <aside class="card">
-        <h2>Destaques</h2>
-        <p class="muted">Pontos-chave do DriveSafe Vision, alinhados ao foco embarcado e à robustez do alerta.</p>
-
-        <div class="pill-list" role="list">
-          <div class="pill" role="listitem">
-            <b>Problema:</b> distração ao volante por celular, aumentando riscos de acidentes.
-          </div>
-          <div class="pill" role="listitem">
-            <b>Solução:</b> detecção em tempo real em plataforma embarcada com arquitetura leve.
-          </div>
-          <div class="pill" role="listitem">
-            <b>Pipeline:</b> captura → pré-processamento → segmentação de movimento → morfologia → contornos → análise temporal.
-          </div>
-          <div class="pill" role="listitem">
-            <b>Implementação:</b> C++ + OpenCV, otimizada para baixo custo computacional.
-          </div>
-          <div class="pill" role="listitem">
-            <b>Saída:</b> alertas locais + notificações remotas via API do Telegram, com evidência pontual (sem vídeo contínuo).
-          </div>
-          <div class="pill" role="listitem">
-            <b>Evolução:</b> potencial multimodal com deep learning, VLMs e LLMs no contexto de ADAS.
-          </div>
-        </div>
-
-        <footer>
-          <span>UFABC • TG — Engenharia de Informação</span>
-          <span style="opacity:.85;">DriveSafe Vision</span>
-        </footer>
-      </aside>
-    </section>
-  </div>
-</body>
-</html>
+  <div class="chips" aria-label="Tecnologias-chave">
+    <!-- chips permanecem IGUAIS -->
