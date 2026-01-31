@@ -37,23 +37,27 @@
     }
 
     .wrap {
-      max-width: 1000px;
+      max-width: 980px;
       margin: 0 auto;
       padding: 48px 20px 64px;
     }
 
+    header { margin-bottom: 28px; }
+
     h1 {
-      font-size: clamp(28px, 4vw, 42px);
       margin: 0;
+      font-size: clamp(28px, 4vw, 42px);
+      letter-spacing: -0.5px;
     }
 
     .subtitle {
       margin-top: 12px;
+      max-width: 75ch;
       color: var(--muted);
-      max-width: 80ch;
+      font-size: 1.05rem;
     }
 
-    /* 🔧 GRID CORRIGIDO */
+    /* 🔧 GRID CORRIGIDO (sem espaço em branco) */
     .grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -69,9 +73,11 @@
       width: 100%;
     }
 
+    h2 { font-size: 1.3rem; }
+
     p {
-      text-align: justify;
       margin: 14px 0;
+      text-align: justify;
     }
 
     figure {
@@ -79,7 +85,8 @@
       margin: 24px 0;
     }
 
-    img, video {
+    figure img,
+    video {
       width: 100%;
       border-radius: 12px;
       border: 1px solid var(--border);
@@ -108,6 +115,20 @@
       color: var(--muted);
       font-weight: 600;
       font-size: .9rem;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .pill {
+      padding: 14px;
+      border-radius: 14px;
+      background: rgba(11,18,32,.55);
+      border: 1px solid var(--border);
     }
 
     footer {
@@ -141,35 +162,27 @@
 <p>
 A distração ao volante, especialmente pelo uso de telefone celular,
 é um dos principais fatores associados ao aumento de acidentes de trânsito.
+Nesse contexto, o DriveSafe Vision consiste em um sistema computacional
+embarcado voltado à detecção automática do uso de celular durante a condução veicular.
 </p>
 
 <p>
 O sistema emprega técnicas de <strong>visão computacional</strong> e
 <strong>deep learning</strong>, utilizando o modelo YOLO para a detecção
 visual do telefone celular. A implementação é realizada em <strong>C++</strong>
-com OpenCV.
+com OpenCV, priorizando eficiência e viabilidade em plataformas embarcadas.
 </p>
 
 <h2>Testes Executados</h2>
 
 <h3>Calibração Inicial e Teste Preliminar</h3>
-<p>
-Inicialmente, o sistema foi calibrado com o motorista em postura normal de condução,
-realizando ajustes no enquadramento da câmera, na região de interesse (ROI) e nos
-parâmetros de segmentação, com o objetivo de reduzir falsos positivos.
-</p>
+<p>Inicialmente, o sistema foi calibrado com o motorista em postura normal de condução…</p>
 
 <h3>Teste 1 – Veículo Estacionado</h3>
-<p>
-O Teste 1 foi conduzido com o veículo estacionado, possibilitando maior controle
-experimental e realismo do ambiente interno.
-</p>
+<p>O Teste 1 foi conduzido com o veículo estacionado…</p>
 
 <h3>Teste 2 – Veículo em Movimento</h3>
-<p>
-O Teste 2 avaliou o desempenho do sistema em condições reais de condução,
-com simulações seguras do uso do celular.
-</p>
+<p>O Teste 2 avaliou o desempenho do sistema em condições mais próximas do cenário real…</p>
 
 <h2>Resultados</h2>
 
@@ -179,9 +192,9 @@ com simulações seguras do uso do celular.
 <figcaption>Figura 1 – Demonstração do sistema DriveSafe Vision.</figcaption>
 
 <video controls>
-  <source src="Arquivos/teste_passageira_editada.mp4" type="video/mp4">
+  <source src="Arquivos/teste_sozinha_editado.mp4" type="video/mp4">
 </video>
-<figcaption>Figura 2 – Detecção com passageiro.</figcaption>
+<figcaption>Figura 2 – Demonstração do sistema DriveSafe Vision.</figcaption>
 
 <div class="chips">
   <span class="chip">Visão Computacional</span>
@@ -195,10 +208,13 @@ com simulações seguras do uso do celular.
 
 <aside class="card">
   <h2>Destaques</h2>
-  <p><b>Problema:</b> uso de celular ao volante.</p>
-  <p><b>Solução:</b> detecção visual em tempo real.</p>
-  <p><b>Pipeline:</b> captura → detecção → validação temporal.</p>
-  <p><b>Aplicação:</b> sistemas ADAS.</p>
+  <div class="pill-list">
+    <div class="pill"><b>Problema:</b> uso de celular ao volante.</div>
+    <div class="pill"><b>Solução:</b> detecção visual em tempo real.</div>
+    <div class="pill"><b>Pipeline:</b> captura → detecção → validação temporal.</div>
+    <div class="pill"><b>Implementação:</b> C++ + OpenCV.</div>
+    <div class="pill"><b>Aplicação:</b> sistemas ADAS.</div>
+  </div>
 </aside>
 
 </section>
