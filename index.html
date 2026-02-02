@@ -1,276 +1,158 @@
-<!doctype html>
-<html lang="pt-BR">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>DriveSafe Vision — UFABC</title>
-  <meta name="description"
-        content="Projeto DriveSafe Vision — Detecção embarcada de uso de celular ao volante." />
-
-  <style>
-    :root {
-      --bg: #0b1220;
-      --card: #111c33;
-      --text: #e9eefc;
-      --muted: #b8c3e6;
-      --border: rgba(255,255,255,0.12);
-      --shadow: 0 20px 45px rgba(0,0,0,0.35);
-      --radius: 18px;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(1000px 600px at 10% 10%, rgba(124,58,237,.35), transparent 60%),
-        radial-gradient(800px 500px at 90% 20%, rgba(34,197,94,.25), transparent 60%),
-        radial-gradient(900px 600px at 50% 120%, rgba(59,130,246,.18), transparent 55%),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.65;
-    }
-
-    .wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 48px 20px 64px;
-    }
-
-    header { margin-bottom: 32px; }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(28px, 4vw, 42px);
-    }
-
-    .subtitle {
-      margin-top: 12px;
-      max-width: 90ch;
-      color: var(--muted);
-    }
-
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
-      width: 100%;
-    }
-
-    h2 { margin-top: 32px; }
-    h3 { margin-top: 24px; }
-
-    p {
-      margin: 14px 0;
-      text-align: justify;
-    }
-
-    img, video {
-      width: 100%;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-      margin-top: 14px;
-    }
-
-    figcaption {
-      margin-top: 8px;
-      font-size: 0.95rem;
-      color: var(--muted);
-      text-align: center;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
-    }
-
-    .chip {
-      padding: 9px 14px;
-      border-radius: 999px;
-      background: rgba(15,26,47,.7);
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-weight: 600;
-      font-size: .9rem;
-    }
-
-    .pill-list.horizontal {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 16px;
-    }
-
-    .pill {
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(11,18,32,.55);
-      border: 1px solid var(--border);
-      white-space: nowrap;
-    }
-
-    footer {
-      margin-top: 48px;
-      text-align: center;
-      font-size: .95rem;
-      color: var(--muted);
-    }
-  </style>
-</head>
-
-<body>
-<div class="wrap">
-
-<header>
-  <h1>DriveSafe Vision</h1>
-  <p class="subtitle">
-    Sistema computacional <b>embarcado</b> para detecção, em tempo real, do
-    <b>uso de telefone celular ao volante</b>, com foco em segurança viária,
-    eficiência computacional e relevância social.
-  </p>
-</header>
-
 <article class="card">
 
-<h2>Descrição do Projeto</h2>
-<p>
-A distração ao volante, especialmente pelo uso de telefone celular, é um dos principais
-fatores associados ao aumento de acidentes de trânsito. Nesse contexto, o DriveSafe Vision
-consiste em um sistema computacional embarcado voltado à detecção automática do uso de celular
-durante a condução veicular.
-</p>
+<!-- ===================== -->
+<!-- DESCRIÇÃO DO PROJETO -->
+<!-- ===================== -->
+<section id="descricao">
+  <h2>Descrição do Projeto</h2>
 
-<p>
-O sistema emprega técnicas de <strong>visão computacional</strong> e
-<strong>deep learning</strong>, utilizando o modelo YOLO para a detecção visual do telefone
-celular. A implementação é realizada em <strong>C++</strong> com OpenCV, priorizando eficiência
-e viabilidade em plataformas embarcadas.
-</p>
+  <p>
+    A distração ao volante, especialmente pelo uso de telefone celular, é um dos principais
+    fatores associados ao aumento de acidentes de trânsito. Nesse contexto, o DriveSafe Vision
+    consiste em um sistema computacional embarcado voltado à detecção automática do uso de celular
+    durante a condução veicular.
+  </p>
 
-<h2>Testes Executados</h2>
+  <p>
+    O sistema emprega técnicas de <strong>visão computacional</strong> e
+    <strong>deep learning</strong>, utilizando o modelo YOLO para a detecção visual do telefone
+    celular. A implementação é realizada em <strong>C++</strong> com OpenCV, priorizando eficiência
+    computacional e viabilidade em plataformas embarcadas.
+  </p>
+</section>
 
-<h3>Calibração Inicial e Teste Preliminar</h3>
-<p>
-Inicialmente, o sistema foi calibrado com o motorista em postura normal de condução,
-ajustando enquadramento, região de interesse e parâmetros de segmentação, de modo a
-reduzir falsos positivos e garantir estabilidade em condição de não evento.
-</p>
+<!-- ================= -->
+<!-- TESTES EXECUTADOS -->
+<!-- ================= -->
+<section id="testes">
+  <h2>Testes Executados</h2>
 
-<h3>Teste 1 – Veículo Estacionado</h3>
-<p>
-O teste foi conduzido com o veículo estacionado, permitindo maior controle experimental
-e realismo do ambiente interno. O sistema não apresentou alertas indevidos em condição
-sem evento e respondeu corretamente à simulação do uso do celular.
-</p>
+  <h3>Calibração Inicial e Teste Preliminar</h3>
+  <p>
+    Inicialmente, o sistema foi calibrado com o motorista em postura normal de condução,
+    ajustando enquadramento, região de interesse e parâmetros de detecção, de modo a reduzir
+    falsos positivos e garantir estabilidade em condição de não evento.
+  </p>
 
-<h3>Teste 2 – Veículo em Movimento</h3>
-<p>
-Em condições dinâmicas, o uso do celular foi simulado de forma segura. O sistema manteve
-desempenho consistente, detectando o evento e retornando ao estado normal após a simulação.
-</p>
+  <h3>Teste 1 – Veículo Estacionado</h3>
+  <p>
+    O teste foi conduzido com o veículo estacionado, permitindo maior controle experimental
+    e realismo do ambiente interno. O sistema não apresentou alertas indevidos em condição
+    sem evento e respondeu corretamente à simulação do uso do celular.
+  </p>
 
-<h2>Resultados</h2>
+  <h3>Teste 2 – Veículo em Movimento</h3>
+  <p>
+    Em condições dinâmicas, o uso do celular foi simulado de forma segura. O sistema manteve
+    desempenho consistente, detectando o evento e retornando ao estado normal após a simulação.
+  </p>
+</section>
 
-<h3>Resultados do Teste Preliminar</h3>
-<p>
-A Figura 1 apresenta a interface do sistema DriveSafe Vision em execução, com detecção
-automática do telefone celular por meio de uma caixa delimitadora (<em>bounding box</em>)
-e indicação do valor de confiança. Observa-se ainda o envio automático da notificação via
-Telegram após a confirmação do evento.
-</p>
+<!-- ========= -->
+<!-- RESULTADOS -->
+<!-- ========= -->
+<section id="resultados">
+  <h2>Resultados</h2>
 
-<figure>
-  <video controls width="600">
-    <source src="Arquivos/Teste_editado.mp4" type="video/mp4">
-    Seu navegador não suporta vídeo HTML5.
-  </video>
-  <figcaption>Figura 1 – Execução do sistema e envio de notificação.Detecção de uso de celular no ambiente veicular.
-  </figcaption>
-</figure>
+  <h3>Resultados do Teste Preliminar</h3>
+  <p>
+    A Figura 1 apresenta a interface do sistema DriveSafe Vision em execução, com detecção
+    automática do telefone celular por meio de uma caixa delimitadora (<em>bounding box</em>)
+    e indicação do valor de confiança. Observa-se ainda o envio automático da notificação via
+    Telegram após a confirmação do evento.
+  </p>
 
-  
-<h3>Resultados do Teste 1 – Veículo Estacionado</h3>
-<p>
-Durante o Teste 1, o sistema apresentou elevada capacidade de rejeição a falsos positivos.
-Quando o uso do celular foi simulado, a detecção ocorreu corretamente, com emissão de alerta
-sonoro, salvamento do frame e envio da notificação.
-</p>
+  <figure>
+    <video controls>
+      <source src="Arquivos/Teste_editado.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo HTML5.
+    </video>
+    <figcaption>
+      Figura 1 – Execução do sistema e envio de notificação. Detecção de uso de celular no ambiente veicular.
+    </figcaption>
+  </figure>
 
-<figure>
-  <video controls width="600">
-    <source src="Arquivos/teste_sozinha_editado.mp4" type="video/mp4">
-    Seu navegador não suporta vídeo HTML5.
-  </video>
-  <figcaption>
-    Figura 2 – Detecção do uso de celular com o veículo estacionado.
-  </figcaption>
-</figure>
+  <h3>Resultados do Teste 1 – Veículo Estacionado</h3>
+  <p>
+    Durante o Teste 1, o sistema apresentou elevada capacidade de rejeição a falsos positivos.
+    Quando o uso do celular foi simulado, a detecção ocorreu corretamente, com emissão de alerta
+    sonoro, salvamento do frame e envio da notificação.
+  </p>
 
-<h3>Resultados do Teste 2 – Imagens de Banco de Dados</h3>
-<p>
-Para a validação do sistema em cenários variados, foram realizados testes experimentais
-utilizando imagens estáticas capturadas no interior de veículos, provenientes de uma base
-de dados pública (Kaggle). Essas imagens apresentam diferentes condições de iluminação,
-ângulos de captura e níveis de oclusão, permitindo avaliar a robustez do método proposto.
-</p>
+  <figure>
+    <video controls>
+      <source src="Arquivos/teste_sozinha_editado.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo HTML5.
+    </video>
+    <figcaption>
+      Figura 2 – Detecção do uso de celular com o veículo estacionado.
+    </figcaption>
+  </figure>
 
-<figure style="max-width: 500px; margin: auto;">
-  <img 
-    src="Arquivos/imagem1.jpg"
-    alt="Detecção de uso de celular no ambiente veicular"
-    style="width: 80%; height: auto;">
-  <figcaption>
-    Figura 3 – Detecção do uso de telefone celular ao volante em imagem de banco de dados.
-  </figcaption>
-</figure>
+  <h3>Resultados do Teste 2 – Imagens de Banco de Dados</h3>
+  <p>
+    Foram realizados testes utilizando imagens estáticas provenientes de uma base pública
+    (Kaggle), contemplando diferentes condições de iluminação, ângulos de captura e níveis
+    de oclusão, permitindo avaliar a robustez do método proposto.
+  </p>
 
-<figure style="max-width: 500px; margin: auto;">
-  <img 
-    src="Arquivos/imagem7.jpg"
-    alt="Detecção de uso de celular no ambiente veicular"
-    style="width: 80%; height: auto;">
-  <figcaption>
-     Figura 4 – Identificação de telefone celular ao volante em cenário com variação de iluminação.
-  </figcaption>
-</figure>
+  <figure style="max-width: 500px; margin: auto;">
+    <img src="Arquivos/imagem1.jpg" alt="Detecção de celular ao volante" style="width:80%;">
+    <figcaption>
+      Figura 3 – Detecção do uso de telefone celular ao volante em imagem de banco de dados.
+    </figcaption>
+  </figure>
 
-<p>
-Os resultados obtidos indicam que o sistema é capaz de localizar corretamente o telefone
-celular mesmo em situações com variações significativas de iluminação, enquadramento e
-oclusão parcial do objeto. A correta identificação do dispositivo nessas condições evidencia
-a capacidade de generalização do modelo e sua aplicabilidade em cenários realistas de
-condução veicular.
-</p>
+  <figure style="max-width: 500px; margin: auto;">
+    <img src="Arquivos/imagem7.jpg" alt="Detecção com variação de iluminação" style="width:80%;">
+    <figcaption>
+      Figura 4 – Identificação de telefone celular em cenário com variação de iluminação.
+    </figcaption>
+  </figure>
 
-<h3>Resultados do Teste 2 – Veículo em Movimento com Passageiro</h3>
-<p>
-A Figura 5 corresponde a um vídeo capturado durante os testes com veículo em movimento.
-Observa-se que o sistema identificou o uso de celular tanto pelo motorista quanto pelo
-passageiro, demonstrando percepção abrangente do interior do veículo.
-</p>
+  <h3>Resultados do Teste 3 – Veículo em Movimento com Passageiro</h3>
+  <p>
+    Observou-se que o sistema foi capaz de identificar o uso de celular tanto pelo motorista
+    quanto pelo passageiro, demonstrando percepção abrangente do ambiente interno do veículo.
+  </p>
 
-<figure>
-  <video controls width="600">
-    <source src="Arquivos/teste_passageira_editada.mp4" type="video/mp4">
-    Seu navegador não suporta vídeo HTML5.
-  </video>
-  <figcaption>
-   Figura 5 – Detecção de uso de celular por passageiro.
-  </figcaption>
-</figure>
+  <figure>
+    <video controls>
+      <source src="Arquivos/teste_passageira_editada.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo HTML5.
+    </video>
+    <figcaption>
+      Figura 5 – Detecção de uso de celular por passageiro em veículo em movimento.
+    </figcaption>
+  </figure>
+</section>
 
-<p>
-A abordagem baseada em análise temporal e redes neurais profundas contribuiu para a
-redução de falsos positivos e operação estável em cenários realistas, estabelecendo uma
-base sólida para futuras extensões, como integração com sistemas ADAS.
-</p>
+<!-- ================= -->
+<!-- ANÁLISE DE DADOS -->
+<!-- ================= -->
+<section id="analise">
+  <h2>Análise de Dados</h2>
+
+  <p>
+    A análise dos resultados demonstra que o DriveSafe Vision apresenta comportamento estável
+    e consistente em diferentes cenários experimentais. A utilização de análise temporal,
+    aliada à detecção baseada em redes neurais profundas, contribuiu significativamente para
+    a redução de falsos positivos.
+  </p>
+
+  <p>
+    O sistema mostrou capacidade de generalização ao identificar corretamente o telefone
+    celular mesmo em situações de variação de iluminação, oclusão parcial e mudanças de
+    enquadramento. Esses resultados indicam a robustez do modelo YOLO aplicado ao contexto
+    veicular.
+  </p>
+
+  <p>
+    Além disso, a execução em tempo real e a integração com notificações automáticas
+    demonstram o potencial de aplicação prática do sistema em soluções embarcadas e
+    futuras extensões voltadas a sistemas avançados de assistência ao motorista (ADAS).
+  </p>
+</section>
 
 <div class="chips">
   <span class="chip">Visão Computacional</span>
@@ -281,12 +163,3 @@ base sólida para futuras extensões, como integração com sistemas ADAS.
 </div>
 
 </article>
-
-<footer>
-  UFABC • TG — Engenharia de Informação<br>
-  DriveSafe Vision
-</footer>
-
-</div>
-</body>
-</html>
