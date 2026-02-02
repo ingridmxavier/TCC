@@ -294,16 +294,21 @@ base sólida para futuras extensões, como integração com sistemas ADAS.
 </figure>
 
   <p>
-    Os dados analisados foram obtidos a partir dos registros de detecção enviados
-    automaticamente pelo sistema DriveSafe Vision via Telegram, os quais funcionam como
-    logs operacionais contendo informações temporais e níveis de confiança associados
-    a cada evento detectado.
+    O primeiro dashboard apresenta a distribui¸c˜ao das confian¸cas associadas `as detec¸c˜oes
+de uso de celular realizadas pelo modelo YOLO no sistema DriveSafe Vision. Observa-se que
+a maior concentra¸c˜ao de eventos ocorre no intervalo aproximado entre 0,60 e 0,75, indicando
+que o modelo tende a operar em uma faixa intermedi´aria de confian¸ca quando aplicado a
+cen´arios reais de condu¸c˜ao veicular. Essa caracter´ıstica ´e esperada, uma vez que fatores
+como oclus˜oes parciais, varia¸c˜oes de ilumina¸c˜ao, reflexos no para-brisa e diferentes posi¸c˜oes
+das m˜aos influenciam diretamente a visibilidade do objeto de interesse.
   </p>
 
   <p>
-    A partir desses registros da Figura 7, foi realizada uma análise focada na distribuição dos níveis
-    de confiança, na frequência dos eventos ao longo do tempo e na identificação de falsos
-    positivos, permitindo caracterizar o desempenho do sistema em cenários reais de uso.
+   O segundo dashboard na Figura 7 relaciona a confiançaa das detecçõees com a ordem temporal dos
+eventos, destacando visualmente os falsos positivos identificados. A análise desse gráfico
+revela um padrão consistente: os falsos positivos encontram-se concentrados predominan-
+temente em eventos de baixa confian¸ca, geralmente abaixo de 0,60, e aparecem de forma
+pontual ao longo da sequência temporal.
   </p>
   
     <figure style="max-width: 500px; margin: auto;">
@@ -328,13 +333,6 @@ base sólida para futuras extensões, como integração com sistemas ADAS.
   </em></p>
 
   <p>
-    A análise da distribuição das confianças revelou maior concentração de detecções
-    em valores intermediários, aproximadamente entre 0,60 e 0,75, comportamento esperado
-    em cenários veiculares reais, sujeitos a variações de iluminação, oclusões parciais
-    e reflexos no parabrisa.
-  </p>
-
-  <p>
     Observou-se na Figura 8 que os falsos positivos ocorrem majoritariamente em eventos de baixa
     confiança e de forma pontual ao longo do tempo, enquanto detecções com maior
     confiança mostraram-se estáveis e consistentes. Esse comportamento indica que os erros não são sistemáticos e que
@@ -353,16 +351,18 @@ Positivos
 </figure>
 
   <p>
-    A comparação estatística entre falsos positivos e verdadeiros positivos evidenciou
-    uma separação clara entre as distribuições de confiança, com valores medianos
-    significativamente menores para os falsos positivos. Essa separação confirma o poder discriminativo da métrica de confiança
-    fornecida pelo modelo YOLO.
+  O terceiro dashboard apresenta um comparativo entre as distribuições de confiança
+associadas aos falsos positivos e aos verdadeiros positivos. A análise estatística evidencia uma
+separação clara entre os dois grupos: os falsos positivos apresentam mediana de confiança
+significativamente inferior `a observada nos eventos classificados como verdadeiros positivos.
   </p>
 
   <p>
-    Dessa forma, os resultados indicam que a adoção de limiares adaptativos e critérios
-    temporais, como persistência mínima do evento, constitui uma estratégia eficaz
-    para reduzir alarmes indevidos sem comprometer a capacidade de detecção do sistema.
+  Essa separação estatística confirma que a confiança fornecida pelo modelo YOLO possui
+poder discriminativo suficiente para auxiliar na distinção entre eventos válidos e detecções.
+Assim, o uso de limiares adaptativos ou métricas combinadas, que considerem tanto
+a confiançaa quanto a duração do evento, mostra-se uma estratégia eficaz para aumentar a
+confiabilidade global do sistema.
   </p>
 
 </section>
