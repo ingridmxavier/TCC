@@ -1,292 +1,412 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title>DriveSafe Vision — UFABC</title>
-  <meta name="description"
-        content="Projeto DriveSafe Vision — Detecção embarcada de uso de celular ao volante." />
-
-  <style>
-    :root {
-      --bg: #0b1220;
-      --card: #111c33;
-      --text: #e9eefc;
-      --muted: #b8c3e6;
-      --border: rgba(255,255,255,0.12);
-      --shadow: 0 20px 45px rgba(0,0,0,0.35);
-      --radius: 18px;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DriveSafe Vision — Detecção de Uso de Celular ao Volante</title>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
     }
-
-    * { box-sizing: border-box; }
 
     body {
-      margin: 0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      background:
-        radial-gradient(1000px 600px at 10% 10%, rgba(124,58,237,.35), transparent 60%),
-        radial-gradient(800px 500px at 90% 20%, rgba(34,197,94,.25), transparent 60%),
-        radial-gradient(900px 600px at 50% 120%, rgba(59,130,246,.18), transparent 55%),
-        var(--bg);
-      color: var(--text);
-      line-height: 1.65;
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        line-height: 1.7;
+        color: #1a1a2e;
+        background: #f7f8fa;
     }
 
-    .wrap {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 48px 20px 64px;
+    header {
+        background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
+        color: #ffffff;
+        padding: 60px 20px;
+        text-align: center;
     }
 
-    header { margin-bottom: 32px; }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(28px, 4vw, 42px);
+    header .icon {
+        font-size: 48px;
+        margin-bottom: 10px;
     }
 
-    .subtitle {
-      margin-top: 12px;
-      max-width: 90ch;
-      color: var(--muted);
+    header h1 {
+        font-size: 2.4rem;
+        margin-bottom: 10px;
+        letter-spacing: -0.5px;
+    }
+
+    header p.subtitle {
+        font-size: 1.1rem;
+        opacity: 0.85;
+        max-width: 700px;
+        margin: 0 auto;
+    }
+
+    .badges {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    .badge {
+        background: rgba(255,255,255,0.15);
+        padding: 6px 14px;
+        border-radius: 20px;
+        font-size: 0.85rem;
+        border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    main {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 50px 20px;
+    }
+
+    section {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 32px;
+        margin-bottom: 24px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+        border: 1px solid #e5e7eb;
+    }
+
+    section h2 {
+        color: #0f172a;
+        font-size: 1.4rem;
+        margin-bottom: 16px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid #3b82f6;
+        display: inline-block;
+    }
+
+    section p {
+        margin-bottom: 12px;
+        color: #374151;
+    }
+
+    .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+        margin-top: 16px;
     }
 
     .card {
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.02));
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      box-shadow: var(--shadow);
-      width: 100%;
+        background: #f0f4f8;
+        border-radius: 8px;
+        padding: 18px;
+        border-left: 4px solid #3b82f6;
     }
 
-    h2 { margin-top: 32px; }
-    h3 { margin-top: 24px; }
-
-    p {
-      margin: 14px 0;
-      text-align: justify;
+    .card h3 {
+        font-size: 1rem;
+        color: #1e3a5f;
+        margin-bottom: 6px;
     }
 
-    img, video {
-      width: 100%;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-      margin-top: 14px;
+    .card p {
+        font-size: 0.9rem;
+        color: #4b5563;
+        margin: 0;
     }
 
-    figcaption {
-      margin-top: 8px;
-      font-size: 0.95rem;
-      color: var(--muted);
-      text-align: center;
+    .pipeline {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 24px 0;
     }
 
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 24px;
+    .pipeline .step {
+        background: #1e3a5f;
+        color: white;
+        padding: 12px 18px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        text-align: center;
+        min-width: 140px;
     }
 
-    .chip {
-      padding: 9px 14px;
-      border-radius: 999px;
-      background: rgba(15,26,47,.7);
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-weight: 600;
-      font-size: .9rem;
+    .pipeline .arrow {
+        color: #3b82f6;
+        font-size: 1.4rem;
     }
 
-    .pill-list.horizontal {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 16px;
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 16px;
+        font-size: 0.92rem;
     }
 
-    .pill {
-      padding: 10px 16px;
-      border-radius: 999px;
-      background: rgba(11,18,32,.55);
-      border: 1px solid var(--border);
-      white-space: nowrap;
+    th, td {
+        text-align: left;
+        padding: 10px 12px;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    th {
+        background: #1e3a5f;
+        color: white;
+        font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+        background: #f7f8fa;
+    }
+
+    .stat-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px;
+        margin-top: 16px;
+    }
+
+    .stat {
+        flex: 1;
+        min-width: 140px;
+        background: #eff6ff;
+        border-radius: 8px;
+        padding: 18px;
+        text-align: center;
+    }
+
+    .stat .number {
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: #1e3a5f;
+    }
+
+    .stat .label {
+        font-size: 0.82rem;
+        color: #6b7280;
+        margin-top: 4px;
+    }
+
+    .tech-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 12px;
+    }
+
+    .tech-tag {
+        background: #dbeafe;
+        color: #1e3a5f;
+        padding: 5px 12px;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+
+    ul {
+        margin-left: 20px;
+        color: #374151;
+    }
+
+    ul li {
+        margin-bottom: 8px;
     }
 
     footer {
-      margin-top: 48px;
-      text-align: center;
-      font-size: .95rem;
-      color: var(--muted);
+        text-align: center;
+        padding: 30px 20px;
+        color: #6b7280;
+        font-size: 0.85rem;
     }
-  </style>
-</head>
 
+    .highlight-box {
+        background: #fef3c7;
+        border-left: 4px solid #f59e0b;
+        padding: 14px 18px;
+        border-radius: 6px;
+        margin-top: 16px;
+        font-size: 0.92rem;
+    }
+</style>
+</head>
 <body>
-<div class="wrap">
 
 <header>
-  <h1>DriveSafe Vision</h1>
-  <p class="subtitle">
-    Sistema computacional <b>embarcado</b> para detecção, em tempo real, do
-    <b>uso de telefone celular ao volante</b>, com foco em segurança viária,
-    eficiência computacional e relevância social.
-  </p>
+    <div class="icon">🚗📱</div>
+    <h1>DriveSafe Vision</h1>
+    <p class="subtitle">Sistema de detecção em tempo real de uso de celular ao volante, com alertas automáticos via Telegram, embarcado em Raspberry Pi 4.</p>
+    <div class="badges">
+        <span class="badge">Trabalho de Graduação — Engenharia de Informação</span>
+        <span class="badge">UFABC</span>
+        <span class="badge">Visão Computacional</span>
+        <span class="badge">Deep Learning</span>
+    </div>
 </header>
 
-<article class="card">
+<main>
 
-<h2>Descrição do Projeto</h2>
-<p>
-A distração ao volante, especialmente pelo uso de telefone celular, é um dos principais
-fatores associados ao aumento de acidentes de trânsito. Nesse contexto, o DriveSafe Vision
-consiste em um sistema computacional embarcado voltado à detecção automática do uso de celular
-durante a condução veicular.
-</p>
+    <section>
+        <h2>Sobre o Projeto</h2>
+        <p>
+            O <strong>DriveSafe Vision</strong> é um sistema de monitoramento que detecta, em tempo real,
+            o uso de celular por motoristas durante a condução, com o objetivo de contribuir para a
+            redução de acidentes de trânsito causados por distração. O sistema combina duas redes
+            neurais em uma arquitetura de dois estágios e envia alertas automáticos via Telegram
+            sempre que o uso contínuo do celular é confirmado.
+        </p>
+        <p>
+            O protótipo foi desenvolvido e validado tanto em um computador convencional (com webcam)
+            quanto em um dispositivo embarcado de baixo custo — o Raspberry Pi 4 — demonstrando a
+            viabilidade da solução em hardware com recursos computacionais limitados.
+        </p>
+    </section>
 
-<p>
-O sistema emprega técnicas de <strong>visão computacional</strong> e
-<strong>deep learning</strong>, utilizando o modelo YOLO para a detecção visual do telefone
-celular. A implementação é realizada em <strong>C++</strong> com OpenCV, priorizando eficiência
-e viabilidade em plataformas embarcadas.
-</p>
+    <section>
+        <h2>Pipeline de Detecção</h2>
+        <p>O sistema utiliza uma abordagem de detecção em dois estágios, eliminando falsos positivos causados por objetos com formato semelhante ao de um celular:</p>
+        <div class="pipeline">
+            <div class="step">📷 Captura do Frame</div>
+            <span class="arrow">→</span>
+            <div class="step">YOLOv8<br>Detecta celular na cena</div>
+            <span class="arrow">→</span>
+            <div class="step">MobileNetV2<br>Confirma uso ao volante</div>
+            <span class="arrow">→</span>
+            <div class="step">📲 Alerta via Telegram</div>
+        </div>
+        <div class="highlight-box">
+            O frame só é classificado como <em>uso de celular</em> quando os <strong>dois</strong> modelos concordam:
+            o YOLOv8 confirma a presença física do dispositivo, e o MobileNetV2 confirma o contexto de uso ao volante.
+        </div>
+    </section>
 
-<h2>Testes Executados</h2>
+    <section>
+        <h2>Modelos Avaliados</h2>
+        <p>Oito arquiteturas de <em>deep learning</em> foram comparadas antes da escolha final, divididas em classificadores e detectores de objetos:</p>
+        <div class="grid">
+            <div class="card">
+                <h3>MobileNetV2 ✅ (escolhido)</h3>
+                <p>Classificador leve, 99,30% de acurácia, compatível com TFLite para embarcados.</p>
+            </div>
+            <div class="card">
+                <h3>YOLOv8 ✅ (escolhido)</h3>
+                <p>Detector anchor-free em estágio único, usado como filtro de confirmação de celular.</p>
+            </div>
+            <div class="card">
+                <h3>RetinaNet</h3>
+                <p>Melhor acurácia entre todos (99,65%), mas mais custoso computacionalmente.</p>
+            </div>
+            <div class="card">
+                <h3>ResNet50 / VGG16 / AlexNet</h3>
+                <p>Classificadores clássicos, usados como referência de comparação.</p>
+            </div>
+            <div class="card">
+                <h3>SSD / Faster R-CNN</h3>
+                <p>Detectores adicionais avaliados como referência entre estágio único e dois estágios.</p>
+            </div>
+        </div>
+    </section>
 
-<h3>Calibração Inicial e Teste Preliminar</h3>
-<p>
-Inicialmente, o sistema foi calibrado com o motorista em postura normal de condução,
-ajustando enquadramento, região de interesse e parâmetros de segmentação, de modo a
-reduzir falsos positivos e garantir estabilidade em condição de não evento.
-</p>
+    <section>
+        <h2>Resultados</h2>
+        <div class="stat-row">
+            <div class="stat">
+                <div class="number">95,4%</div>
+                <div class="label">Acurácia (ImgWC)</div>
+            </div>
+            <div class="stat">
+                <div class="number">97,8%</div>
+                <div class="label">Acurácia (ImgRP)</div>
+            </div>
+            <div class="stat">
+                <div class="number">100%</div>
+                <div class="label">Precisão</div>
+            </div>
+            <div class="stat">
+                <div class="number">&gt;90%</div>
+                <div class="label">Recall</div>
+            </div>
+        </div>
+        <p style="margin-top: 20px;">
+            A arquitetura de dois estágios eliminou completamente os falsos positivos causados por
+            objetos semelhantes a celulares (garrafas, caixas de óculos), sem necessidade de
+            retreinar o classificador com novas classes negativas.
+        </p>
+    </section>
 
-<h3>Teste 1 – Veículo Estacionado</h3>
-<p>
-O teste foi conduzido com o veículo estacionado, permitindo maior controle experimental
-e realismo do ambiente interno. O sistema não apresentou alertas indevidos em condição
-sem evento e respondeu corretamente à simulação do uso do celular.
-</p>
+    <section>
+        <h2>Hardware Embarcado</h2>
+        <table>
+            <tr><th>Componente</th><th>Especificação</th></tr>
+            <tr><td>Processamento</td><td>Raspberry Pi 4 Model B — Broadcom BCM2711, 4 núcleos ARM Cortex-A72 @ 1,8 GHz, 4 GB RAM</td></tr>
+            <tr><td>Câmera</td><td>Módulo CSI 5MP com sensor OV5647, lente infravermelha</td></tr>
+            <tr><td>Resolução de captura</td><td>640×480 px — modo nativo mais rápido do sensor (62,5 FPS)</td></tr>
+            <tr><td>Sistema Operacional</td><td>Raspberry Pi OS (64 bits), baseado em Debian</td></tr>
+            <tr><td>Armazenamento</td><td>Cartão microSD 32 GB</td></tr>
+        </table>
+    </section>
 
-<h3>Teste 2 – Veículo em Movimento</h3>
-<p>
-Em condições dinâmicas, o uso do celular foi simulado de forma segura. O sistema manteve
-desempenho consistente, detectando o evento e retornando ao estado normal após a simulação.
-</p>
+    <section>
+        <h2>Integração com Telegram</h2>
+        <p>
+            O sistema envia notificações automáticas em tempo real por meio da API REST do Telegram,
+            transformando o protótipo de um sistema de detecção local em uma solução de
+            monitoramento remoto:
+        </p>
+        <ul>
+            <li><strong>Início do sistema:</strong> mensagem de texto confirmando a ativação</li>
+            <li><strong>Alerta de detecção:</strong> foto do momento + tempo de uso contínuo, disparado após 2 segundos de detecção confirmada</li>
+            <li><strong>Cooldown de 30s:</strong> evita spam de notificações repetidas</li>
+            <li><strong>Encerramento:</strong> confirmação de que o sistema foi desativado</li>
+        </ul>
+    </section>
 
-<h2>Resultados</h2>
+    <section>
+        <h2>Stack Tecnológica</h2>
+        <div class="tech-list">
+            <span class="tech-tag">Python</span>
+            <span class="tech-tag">TensorFlow / Keras</span>
+            <span class="tech-tag">TensorFlow Lite</span>
+            <span class="tech-tag">ONNX Runtime</span>
+            <span class="tech-tag">OpenCV</span>
+            <span class="tech-tag">YOLOv8 (Ultralytics)</span>
+            <span class="tech-tag">MobileNetV2</span>
+            <span class="tech-tag">Picamera2</span>
+            <span class="tech-tag">Telegram Bot API</span>
+            <span class="tech-tag">Pandas</span>
+            <span class="tech-tag">Raspberry Pi 4</span>
+        </div>
+    </section>
 
-<h3>Resultados do Teste Preliminar</h3>
-<p>
-A Figura 1 apresenta a interface do sistema DriveSafe Vision em execução, com detecção
-automática do telefone celular por meio de uma caixa delimitadora (<em>bounding box</em>)
-e indicação do valor de confiança. Observa-se ainda o envio automático da notificação via
-Telegram após a confirmação do evento.
-</p>
+    <section>
+        <h2>Desafios Técnicos Superados</h2>
+        <ul>
+            <li>Incompatibilidade entre Python 3.13 e TensorFlow — resolvida com <code>ai-edge-litert</code></li>
+            <li>Correção de bug crítico de pré-processamento (<code>/255.0</code> vs. <code>preprocess_input()</code>), que restaurou o recall do sistema</li>
+            <li>Eliminação de falsos positivos por meio da arquitetura de detecção em dois estágios</li>
+            <li>Padronização da resolução de captura entre plataformas para comparação justa de desempenho</li>
+            <li>Correção da lógica de cooldown de alertas via Telegram</li>
+            <li>Ganho de ~6,7x de velocidade na conversão do modelo Keras para TensorFlow Lite</li>
+        </ul>
+    </section>
 
-<figure>
-  <video controls width="600">
-    <source src="Arquivos/Teste_editado.mp4" type="video/mp4">
-    Seu navegador não suporta vídeo HTML5.
-  </video>
-  <figcaption>Figura 1 – Execução do sistema e envio de notificação.Detecção de uso de celular no ambiente veicular.
-  </figcaption>
-</figure>
+    <section>
+        <h2>Trabalhos Futuros</h2>
+        <ul>
+            <li>Avaliação do sistema em condições noturnas e de baixa iluminação</li>
+            <li>Aplicação de técnicas de <em>Explainable AI</em> (Grad-CAM, SHAP) para interpretar as decisões do modelo</li>
+            <li>Investigação aprofundada do gargalo de desempenho entre plataformas de execução</li>
+            <li>Refinamento do cálculo de métricas de FPS efetivo</li>
+        </ul>
+    </section>
 
-  
-<h3>Resultados do Teste 1 – Veículo Estacionado</h3>
-<p>
-Durante o Teste 1, o sistema apresentou elevada capacidade de rejeição a falsos positivos.
-Quando o uso do celular foi simulado, a detecção ocorreu corretamente, com emissão de alerta
-sonoro, salvamento do frame e envio da notificação.
-</p>
-
-<figure>
-  <video controls width="600">
-    <source src="Arquivos/teste_sozinha_editado.mp4" type="video/mp4">
-    Seu navegador não suporta vídeo HTML5.
-  </video>
-  <figcaption>
-    Figura 2 – Detecção do uso de celular com o veículo estacionado.
-  </figcaption>
-</figure>
-
-<h3>Resultados do Teste 2 – Imagens de Banco de Dados</h3>
-<p>
-Para a validação do sistema em cenários variados, foram realizados testes experimentais
-utilizando imagens estáticas capturadas no interior de veículos, provenientes de uma base
-de dados pública (Kaggle). Essas imagens apresentam diferentes condições de iluminação,
-ângulos de captura e níveis de oclusão, permitindo avaliar a robustez do método proposto.
-</p>
-
-<figure style="max-width: 500px; margin: auto;">
-  <img 
-    src="Arquivos/imagem1.jpg"
-    alt="Detecção de uso de celular no ambiente veicular"
-    style="width: 80%; height: auto;">
-  <figcaption>
-    Figura 3 – Detecção do uso de telefone celular ao volante em imagem de banco de dados.
-  </figcaption>
-</figure>
-
-<figure style="max-width: 500px; margin: auto;">
-  <img 
-    src="Arquivos/imagem7.jpg"
-    alt="Detecção de uso de celular no ambiente veicular"
-    style="width: 80%; height: auto;">
-  <figcaption>
-     Figura 4 – Identificação de telefone celular ao volante em cenário com variação de iluminação.
-  </figcaption>
-</figure>
-
-<p>
-Os resultados obtidos indicam que o sistema é capaz de localizar corretamente o telefone
-celular mesmo em situações com variações significativas de iluminação, enquadramento e
-oclusão parcial do objeto. A correta identificação do dispositivo nessas condições evidencia
-a capacidade de generalização do modelo e sua aplicabilidade em cenários realistas de
-condução veicular.
-</p>
-
-<h3>Resultados do Teste 2 – Veículo em Movimento com Passageiro</h3>
-<p>
-A Figura 5 corresponde a um vídeo capturado durante os testes com veículo em movimento.
-Observa-se que o sistema identificou o uso de celular tanto pelo motorista quanto pelo
-passageiro, demonstrando percepção abrangente do interior do veículo.
-</p>
-
-<figure>
-  <video controls width="600">
-    <source src="Arquivos/teste_passageira_editada.mp4" type="video/mp4">
-    Seu navegador não suporta vídeo HTML5.
-  </video>
-  <figcaption>
-   Figura 5 – Detecção de uso de celular por passageiro.
-  </figcaption>
-</figure>
-
-<p>
-A abordagem baseada em análise temporal e redes neurais profundas contribuiu para a
-redução de falsos positivos e operação estável em cenários realistas, estabelecendo uma
-base sólida para futuras extensões, como integração com sistemas ADAS.
-</p>
-
-<div class="chips">
-  <span class="chip">Visão Computacional</span>
-  <span class="chip">YOLO</span>
-  <span class="chip">C++ + OpenCV</span>
-  <span class="chip">Embarcado</span>
-  <span class="chip">Segurança Viária</span>
-</div>
-
-</article>
+</main>
 
 <footer>
-  UFABC • TG — Engenharia de Informação<br>
-  DriveSafe Vision
+    DriveSafe Vision — Trabalho de Graduação em Engenharia de Informação<br>
+    Universidade Federal do ABC (UFABC)
 </footer>
 
-</div>
 </body>
 </html>
